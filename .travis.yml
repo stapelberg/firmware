@@ -1,0 +1,27 @@
+# Use the (faster) container-based infrastructure, see also
+# http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: false
+
+language: go
+go:
+  - 1.7
+
+env:
+  global:
+  # GITHUB_USER
+  - secure: "YKTOquIiDBMI4Tc3Icpbe/7pqj60vDYqGgn9zI7yZ6IuvXVtMI7Tx/mhYEvxtRGHhGyku9Jf0C9pLIlpHgdAwP4bVuJqR/ZioKf8rpMkXE/77qAeMGsY09LYknkL70ATz5NMs/DRD515OgJLJPNUuMwDVAGtknHYVuH/Z3L2NpqmLaSfOx9xW7OrgDsKp8i4zbKKEtkF5Ix2sjaUT8MtL+GqvpILcLzsUChEqtAtv4tslf/fNJ8Yu7k0TbsB+whFJMHzo1QqrMuZXhx54WJQokLZ3WZp7QbEEeXkoRi6S6BPl90B/UDlP54nWX6Zwi1FIMiTOIkcgC3EJmNsVRhcK0rxxrKw+xFGpdTAPE3hGZpgFaku+5LlI1uirDo7CJiXbfjaujFYTDYm/kz+rbl9tfp2sM5rf4Id2V8yexDhAfJBBStri5so+ywjBIE9xeCQ3iy97H8nbEiCKE3Hxf/zm+SRfVyP8h0IuzEIB90aVQsCRo2E+v/qfA/edaC52+/Q8purkfoAZQCF/OcR42PpyP5vD5fZJj+WmIJR9OjZNIQXDZnOtB44vGAqWFCirK6TJvG92I/1itgm1luzv3X9ssZ/6ZUE1MNuWl6n1stE/Hy8fqCsjRSgMB/oWf8Od+mWhufuha6mkJiOExVQ748CkbaomH7zGpDrly5QTqzTJQ4="
+  # GITHUB_AUTH_TOKEN
+  - secure: "WD6zgsOa4ALZKpsdn5K98/9CnFTeufxvVBFKPSGwqXtQJgyjPLnWsA+BTD2X6z/hFLbuXyeRapicxOwvJudzNSpSrQI9/iIeiVbzu67GkDeg3U7imqMmjOuwUcYcPoJvrdDpNTrc2f9wH80VZhfUzz2cbprPpUfbmEZ0mijygGSg0UZs0dp8zFyLiQdbI6XxuN69OAa7dfL8AOmqmVp2Gu/0J6pNP+gGQ1Qp/AdsnaMKa/wZo7/q9Ya+AVReZoewWvdRLb57moL0+lulkmSFpJjTYR0Lr6u+Klf3tugs8tq/IkuQBjbJvNCM4gg/IfSJz6zZNNZfSl0xcARvsskSZqzl1wLDaOfSv5jvLvtxAgt6rKPRKDyknxzxIUyOxqjnKk0MfVcuyoZgDAFj6kTszFFDqzaKspf4+mv1w7oBHFZH6EVEYIXoehjzg/4K5BnDN+hKMDrjAQbTbPSTPWmo8O6b1WUNj0v5Na6o4VSCBuY41O+guDCdPlHYz9z36SQSI+GxbHwNDZO3BNrk9zBI2f0eidKlDYBercos/970AtBJuvvPOrl/+L2pExh/AQpDSwPniFZRz4zXZ0SlSuO+FoTQyDr0rzZuCS/1fuHSXfx4BKhnonwFUgNnu5m8Li33nrJABE9J6FP9CVdFmoxk8rsjcO7fZr8stbmOqE6B77M="
+
+script:
+  # Check whether files are syntactically correct.
+  - "gofmt -l $(find . -name '*.go' | tr '\\n' ' ') >/dev/null"
+  # Check whether files were not gofmt'ed.
+  - gosrc=$(find . -name '*.go' | tr '\\n' ' '); [ $(gofmt -l $gosrc 2>&- | wc -l) -eq 0 ] || (echo 'gofmt was not run on these files:'; gofmt -l $gosrc 2>&-; false)
+  # Update firmware files
+  - go install ./cmd/gokr-update-firmware
+  - gokr-update-firmware
+  # TODO: run boot test on raspberry pi
+  # update pull request
+  - go get -u github.com/gokrazy/autoupdate/cmd/gokr-amend
+  - gokr-amend *.bin *.elf *.dat
