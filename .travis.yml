@@ -9,19 +9,22 @@ go:
 env:
   global:
   # GITHUB_USER
-  - secure: "C88RAjHfbNjL0OIG/21fQ0HfgfCQZs2Jiqrw06ZtSsl9TdHcFhA7BnrbQnA7t9RI1rUy58QIZkqJInOZ7XzunQKnStmrQUASng++Sd22hPs01W8Djf9+f5kohQD7GV8eDHX35k9dWX37u4DBggtrIwwRa3kqqirUMocDCiWyH7ZplU6lUtLC4YhYwm030morde0+BDap+C9jBMKCdY00SryJkEMeMtXo0CZUoHdv2m8onWdhMs9Zl/uW0U57E6ttSrZzc9K19juEk8r/X+jCSOJ5blczWFkeLRZxUXIQhxsV8Ckx+Mod1yr8o/6xBcSV5xMHhDd55gaKKrrJzkFnqgTJhwSCssCSMYBGqkR9gRHekUogJmEHKIjmI75Pz6Ry+PBEIo7tSL21bYlfs3cIByT4Tpz8Cb8ZcJPBGfr5Qn2AtDgGUPusyOUDcaDZHL0NA3YQ5Lf0DWjimwF7vOv8BcW/6kxDzz+lk685gc9DQtf5X6ttoqr5hFiQ0r0/foTQo6qLFgeFHfBS1gay0gRoxqIJEJZ5FkJdQMJLY6t8zdpEbtBkiUmgWAxqHcAntgWfRZnzsyAfRFcUZX6m6p9yXecbu452inwVOHN/ioU6Gjf8omBbMOLVkNJoV66RXjrtVqp4T5/A+dr0KSxXjJ+xrfxxQ/yJyKAsDWJTQin9obs="
+  - secure: "Gh2YKPSLuCK06ji+fYccWv9sKpKRRqOq9/d0V2vxXK08qKhiB5lnUlOwKIgHYvA6Y9quPhwnoRqaXX3es4ciHq+CvoHMUBYEy4NtS5Lr/aWYvXEEaiICdcULv+991xDsudJZ8g58j20XBvBWi28GuGlcY629G8JRKqYzhRzUZ0zl9XUDEzaYzhM4yCsSRHKlY27J6/qaHBaWO3EDJKJzDBFa09HhX3G49ES3W5ArtntgsYM3I30L0KaZAKuxoXBjjLJn+MiufUwpBtFJSr7AxBICWQmHcUBkS70e8JeQkeB2a+7Xj/Z+2yiZlpHWXJlOD57zykTgWKmVzKP/ki6Ky+NGub1XDP5JyJ8QBlzRkqG8isxyl8aiC+JAKqKyhBAHIOHAcfkqoonNLoPdGiODEE56ebSjtrnUNQW4UHiO3UFHclc3HFBhzASmJgsLTa+MVZ7KBhLKaAI95P4ykVRDL+lpc6lj0IjfXUWuo1nIXX6cKtD/OaludrQhzmFUlwM5l9misLjlvEMpMA17NfE7u7jqTY3WGRdX8crKaS/8OUxMmvSolk3IC6O2PCLa97ZRbM5vB9Yv6JXcuRS/UPONfVeCWaQMNmOGeWyIcjIVUTikTjLbm1CDGKh/uR/igvCQ0JRV7MDD8R1NE75+IeY0PD0ZIiNZ5nVYJelQTY7mMCI="
   # GITHUB_AUTH_TOKEN
-  - secure: "CBgwbxfYz/4fhNd1B4W4Xz0sdSbpYgLIXJNNn+YzGouwrjsHGaiA3Ac/y9DsqPGQ6OqDJZJHZlVpOCNuDfEZWDdwiXoSCl8sNiNBiMSkKJfp3P0IHjLb9eCdqLFRTcQdUjzmbRUQhzngCSfKOaEEpEORUmwbomNZLtnjgiF0Jl5urucxyeO3WUN0dbDSkrdYYQbpHYXeKL33Aeqg6CHDRdzZIJrCsNkdChszGI/FX1v32Q1uu9xDbytO0HUyMJtqwUR/r3cdX3nVoFiJoehiky4IBvcvoLeDZCG+gzgNFkCkLTHc2Sqe+iMxqplDpf4hpXanVjFNj33OrrlJ5fMFqxpGrvWWFTIW8FVt5olG3IIjOJCDpMs7O/I79Y/yTESpZqkZl8h9WfdpDLyHp2bnzQI7UsCsURb1I+T58aKyRdix2Oe30VkHBXQKP3GjTpum6B/lg4bFBPnNgoZQ9xYDIEic+IVo1wvF3LbpaEFhxP60UIk8zWx0BZssdO9CaspLKBS6sSM90ibQPaxW9QAAvoHxfVn8iDCmSRanhAoFVAbBJn6gMaRoiUhJsQpSc32XfsqqxPAy43BesrSfVwyf4iwI4odY/vx1GL4h09c9+E6Vr320c0kgUIzR1ipuwBxBnXFamrMVH7Jrl7NSmqxxgyFhlAiQOqVzjs6/ctjDZfE="
+  - secure: "tZMezsUCNLDE1uwShen2omADxYbWv7lS21lM+GwQBSPhWQgOx9wzpegDEyV1PxoWqYqASuEPQYxA9+B80S/guCiBCXXdxbOFEbhd+Uj5PlNI2bB2AaWrUwsa3nNtM+CwKp9cikB+zOSqw24ibrpS6VNKd+gBGOOTTLj3VXvWoNGT6vmBeIqUkEc6oGto4RunQ5uz7Z8aggs/mv9Mzi2ClzPDEtb0efqrxVJpxMP/bzo0zdOh+x4gNZtVKdPHu2YjNK+bCF9S7V4g5+kXEblOMcY/zgn1UlHE14ErqCLJLf3sb+HUMS5XIMypHMX1cpKrSU9pq4/LlQGAuGMuIIghXT9CXW4+ClNH4jdYhpob1PFUYEFe1T/yD7Y9zQVPb9w5ZR/CpkO7w4ppq9QE+lVRa1+AcZyJt0HvY6X2fi7JP+c403OReKRBt9yhFFRcUXGxJbrSs+fLHpLUtGZospMrACdV31wo6KqmnlfMjTn2o8J0NQHlt1UG3/Qs/buobuQUmNCTkwwx6JMjzRPiSPC7kWHN++a2eG5QpZ/7YmOj9SE8eGCjlrdOloqkpa3cl1gW8+DBeAVkYe4dXTY7fF0wrpDZa6UObReEvpiP+D+33gkEMDzX1+W5czxxu4Bn4KBZLbes9TJLc7MPJv5+AJFmmXSXwZFcNhyt5AfdwWrM1Ts="
+  # BOOTERY_URL
+  - secure: "kMqsY8BKh5mYMl/1RuqhBzs/Ve0bu8VRTrMsbQLVJRuP2bW3TbulAeDkse1x3KhypK3opOdr1TxQoJxncwuW+1I2v5sNoPIYpodnhps/esb7OFAQopzKQJdyOx1oteoX1XeAfKzMEI5yffM/Gc1if5Zz51dOdfNQIcEZAOdYwPpe7QbGfu0Ou0tfQ1T8mCvMuwUpxCbvoM4HfC78fg4zxTgCR0GN1vDsODwcUG2RPcsGR9VDFyXZrHIHYjHcyS9RGTw36gqXjn75eVMGbstzuj9HFQT5LveS2uyKT/i2oh1K+VJs/i4XDHgIZuBFc98+Oq9qDRxwNWYLBp1v7nQxPZ6ZnyJA3RP7D8RpmhfDJh6p0KOw8QRM/P27Wlo9F68NEVesywzqmTjtLuyd/s/BnsTM//N/29Xc6n9wtHimIJvEewXHgstHlgeYVT6nums4R6A0Y68SSakQnta8XJRUF+kIMFAODQyaOZ5Xsa0Yq5OdOcGhgrsvs7cEev1HXht7YQCyehrUv45q1hUUkHobpKTXMgK1zhedOCSUWToo355zqEP3H1DZ3UFnNb69gnR9nGnj94ONHiaTwBrBHjrBhrgOcf2dtfRBr9nLvf/2NMeZma7z1iZHiwPxNEqRoLlDg97Ih6o0Qh45VuRH2OJhqQ9QcamVE1w9RFWddnpkXbU="
 
 script:
   # Check whether files are syntactically correct.
   - "gofmt -l $(find . -name '*.go' | tr '\\n' ' ') >/dev/null"
   # Check whether files were not gofmt'ed.
   - gosrc=$(find . -name '*.go' | tr '\\n' ' '); [ $(gofmt -l $gosrc 2>&- | wc -l) -eq 0 ] || (echo 'gofmt was not run on these files:'; gofmt -l $gosrc 2>&-; false)
-  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (go get -u github.com/gokrazy/autoupdate/cmd/gokr-merge && gokr-merge -require_label=please-merge; ret=$?; if [ $ret -eq 0 ]; then exit 0; elif [ $ret -eq 1 ]; then exit 1; else true; fi)'
+  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || go get -u github.com/gokrazy/autoupdate/cmd/... github.com/gokrazy/tools/cmd/gokr-packer'
+  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (gokr-boot -require_label=please-boot -set_label=please-merge -bootery_url=$BOOTERY_URL; ret=$?; if [ $ret -eq 0 ]; then exit 0; elif [ $ret -eq 1 ]; then exit 1; else true; fi)'
+  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (gokr-merge -require_label=please-merge; ret=$?; if [ $ret -eq 0 ]; then exit 0; elif [ $ret -eq 1 ]; then exit 1; else true; fi)'
   # Update firmware files
   - go install ./cmd/gokr-update-firmware
   - gokr-update-firmware
-  # TODO: run boot test on raspberry pi
   # update pull request
-  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (go get -u github.com/gokrazy/autoupdate/cmd/gokr-amend && gokr-amend -set_label=please-merge *.bin *.elf *.dat)'
+  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (go get -u github.com/gokrazy/autoupdate/cmd/gokr-amend && gokr-amend -set_label=please-boot *.bin *.elf *.dat)'
