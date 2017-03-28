@@ -21,7 +21,8 @@ script:
   # Check whether files were not gofmt'ed.
   - gosrc=$(find . -name '*.go' | tr '\\n' ' '); [ $(gofmt -l $gosrc 2>&- | wc -l) -eq 0 ] || (echo 'gofmt was not run on these files:'; gofmt -l $gosrc 2>&-; false)
   - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || go get -u github.com/gokrazy/autoupdate/cmd/... github.com/gokrazy/tools/cmd/gokr-packer'
-  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (gokr-boot -require_label=please-boot -set_label=please-merge -bootery_url=$BOOTERY_URL; ret=$?; if [ $ret -eq 0 ]; then exit 0; elif [ $ret -eq 1 ]; then exit 1; else true; fi)'
+  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (gokr-boot -require_label=please-boot -set_label=please-merge -bootery_url=$BOOTERY_URL; ret=$?; echo "ret = $ret"; if [ $ret -eq 0 ]; then exit 0; elif [ $ret -eq 1 ]; then exit 1; else true; fi)'
+  - echo "next line: $ret"
   - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (gokr-merge -require_label=please-merge; ret=$?; if [ $ret -eq 0 ]; then exit 0; elif [ $ret -eq 1 ]; then exit 1; else true; fi)'
   # Update firmware files
   - go install ./cmd/gokr-update-firmware
