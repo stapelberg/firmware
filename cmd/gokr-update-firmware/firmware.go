@@ -89,7 +89,7 @@ func main() {
 		}
 	}
 
-	path := filepath.Join(gopath, "src", "github.com", "gokrazy", "firmware")
+	path := filepath.Join(gopath, "src", "github.com", "stapelberg", "firmware")
 	var firmwareFiles []string
 	for _, pattern := range []string{"*.elf", "*.bin", "*.dat"} {
 		files, err := filepath.Glob(filepath.Join(path, pattern))
