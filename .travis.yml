@@ -25,7 +25,7 @@ script:
   - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (gokr-boot -require_label=please-boot -set_label=please-merge -bootery_url=$BOOTERY_URL; ret=$?; if [ $ret -eq 0 ]; then SKIP=1; exit 0; elif [ $ret -eq 1 ]; then SKIP=1; exit 1; else true; fi)'
   - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (gokr-merge -require_label=please-merge; ret=$?; if [ $ret -eq 0 ]; then exit 0; elif [ $ret -eq 1 ]; then exit 1; else true; fi)'
   # Update firmware files
-  - [ $SKIP ] || go install ./cmd/gokr-update-firmware
-  - [ $SKIP ] || gokr-update-firmware
+  - '[ $SKIP ] || go install ./cmd/gokr-update-firmware'
+  - '[ $SKIP ] || gokr-update-firmware'
   # update pull request
   - '[ $SKIP ] || [ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (go get -u github.com/gokrazy/autoupdate/cmd/gokr-amend && gokr-amend -set_label=please-boot *.bin *.elf *.dat)'
