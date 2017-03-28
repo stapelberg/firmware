@@ -16,16 +16,15 @@ env:
   - secure: "oQvKfxKj8bvtDTciNT+4xYdFsb/gi8X7vJtu0DlbTnRfZZ9dq9k5OiHs17yYF0eWkW4CE/0STXFZ3DKLTlDyd7HYbDSax13128Dt5rqqLN0K93hjQHY2FW038ZCdkHd3csuxOMt3ga3N+ZD0hxlPvXm6KIIWG9F6p+2FGKXrP1pkiH0pdgt0v9zHia0hJ4lYf9KloJHAn4bFOIoSjqEtwhoQHi+HQI1HGSc7N7TB/dIsXwru8zmQ2qiHVqffnEb60DCZa6amSnWg59ltkhlNRJc9+Ez/U6iukKukLw3+K8H9WvDcnlf2lu6Ks+zMpHthvNIO3Mhz9wUsAz+HaJaUvL5b3Y2yPnZ2jTpZ5doLjGtwYREzaK9Lo20Z94znFBVLQe9OY2/8Y0vXQOD7899gEXV/0m5blSyV4x7W9B0w8gxkMQI/O1PfZS0b3OOoqBdegDP/0Rot7J+s4i2foBlkm0Pvm4nCewCE6lhzUuTLWF6oasYQPxBAL3e2GAS7/bMFm5BgO3fydkhi3u7Vrw1S3mSgFlodLrqvttgzdatsKIGGyOx/10weiKl0GdvtjY86Vbbnsm2iRWebUworaQX5m4JDn/nDRATb0b0r5HwlxJ++MVzA7E36ZJ3/F/zjb/Ai3XHNLd8Op5gzLQRb7fug9mRwxsiB2D7ckcX7IXZ21DQ="
 
 script:
-  - SKIP=
   # Check whether files are syntactically correct.
   - "gofmt -l $(find . -name '*.go' | tr '\\n' ' ') >/dev/null"
   # Check whether files were not gofmt'ed.
   - gosrc=$(find . -name '*.go' | tr '\\n' ' '); [ $(gofmt -l $gosrc 2>&- | wc -l) -eq 0 ] || (echo 'gofmt was not run on these files:'; gofmt -l $gosrc 2>&-; false)
   - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || go get -u github.com/gokrazy/autoupdate/cmd/... github.com/gokrazy/tools/cmd/gokr-packer'
-  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (gokr-boot -require_label=please-boot -set_label=please-merge -bootery_url=$BOOTERY_URL; ret=$?; if [ $ret -eq 0 ]; then SKIP=1; exit 0; elif [ $ret -eq 1 ]; then SKIP=1; exit 1; else true; fi)'
-  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (gokr-merge -require_label=please-merge; ret=$?; if [ $ret -eq 0 ]; then exit 0; elif [ $ret -eq 1 ]; then exit 1; else true; fi)'
+  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || gokr-boot -require_label=please-boot -set_label=please-merge -bootery_url=$BOOTERY_URL || travis_terminate $?'
+  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || { gokr-merge -require_label=please-merge; ret=$?; if [ $ret -eq 0 ]; then travis_terminate 0; elif [ $ret -eq 1 ]; then travis_terminate 1; else true; fi; }'
   # Update firmware files
-  - '[ $SKIP ] || go install ./cmd/gokr-update-firmware'
-  - '[ $SKIP ] || gokr-update-firmware'
+  - go install ./cmd/gokr-update-firmware
+  - gokr-update-firmware
   # update pull request
-  - '[ $SKIP ] || [ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (go get -u github.com/gokrazy/autoupdate/cmd/gokr-amend && gokr-amend -set_label=please-boot *.bin *.elf *.dat)'
+  - '[ "$TRAVIS_SECURE_ENV_VARS" != "true" ] || (go get -u github.com/gokrazy/autoupdate/cmd/gokr-amend && gokr-amend -set_label=please-boot *.bin *.elf *.dat)'
